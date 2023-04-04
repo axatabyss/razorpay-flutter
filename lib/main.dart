@@ -1,7 +1,14 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:razorpayintegration/HomeScreen.dart';
+import 'package:razorpayintegration/service/MyHttpOverrides.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky, overlays: []);
+  HttpOverrides.global = MyHttpOverrides();
   runApp(const MyApp());
 }
 
